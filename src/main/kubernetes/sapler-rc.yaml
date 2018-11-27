@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: sapler
+spec:
+  replicas: 2
+  selector:
+    app: sapler
+  template:
+    metadata:
+      labels:
+        app: sapler
+    spec:
+      containers:
+      - name: sapler
+        image: gcr.io/ultra-acre-193516/sapler:latest
+        ports:
+        - containerPort: 8080
